@@ -19,7 +19,7 @@ export function AITools() {
             className={`data-active:bg-blue-500 text-slate-300 data-active:text-white rounded-sm h-full transition-all text-mc px-4 data-active:bg-linear-to-r ${tab.gradient}`}
           >
             <div className="flex items-center gap-2">
-              <p>{tab.icon}</p>
+              <p className="hidden sm:block">{tab.icon}</p>
               <p>{tab.label}</p>
             </div>
           </TabsTrigger>
