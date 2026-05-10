@@ -3,21 +3,17 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { tabs } from '@/data/tabs';
 
-interface GenerateButtonProps {
-  description: string;
-  selectedLanguage: string;
-  onResult: (code: string) => void;
+interface DebugButtonProps {
+  code: string;
+  error: string;
+  onResult: (solution: string) => void;
 }
 
-const GenerateButton = ({
-  description,
-  selectedLanguage,
-  onResult,
-}: GenerateButtonProps) => {
+const DebugButton = ({ code, error, onResult }: DebugButtonProps) => {
   const [loading, setLoading] = useState(false);
 
   const gradient =
-    tabs.find((tab) => tab.id === 'generate')?.gradient ||
+    tabs.find((tab) => tab.id === 'debug')?.gradient ||
     'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500';
 
   return (
@@ -27,22 +23,22 @@ const GenerateButton = ({
       onClick={async () => {
         try {
           setLoading(true);
-          const response = await fetch('/api/generate', {
+          const response = await fetch('/api/debug', {
             method: 'POST', // Must match your export const POST
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              description: description, // The text from your textarea/input
-              language: selectedLanguage, // The state from your Select component
+              code, // The text from your textarea/input
+              error, // The state from your Select component
             }),
           });
 
           const result = await response.json();
 
           if (result.data) {
-            console.log('Generated Code:', result.data.generatedCode);
-            onResult(result.data.generatedCode);
+            console.log('Debugged Code:', result.data.debugging);
+            onResult(result.data.debugging);
             // Update a state here to display the code in your UI
           }
         } catch (err) {
@@ -52,9 +48,9 @@ const GenerateButton = ({
         }
       }}
     >
-      {loading ? 'Generating...' : 'Generate Code'}
+      {loading ? 'Debugging...' : 'Debug Code'}
     </Button>
   );
 };
 
-export default GenerateButton;
+export default DebugButton;

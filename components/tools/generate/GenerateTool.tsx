@@ -60,7 +60,7 @@ const GenerateTool = () => {
         <CardTitle className="text-xl font-bold">Generate Code</CardTitle>
       </CardHeader>
       <CardContent className="text-sm text-muted-foreground relative p-0">
-        <div>Programming Language</div>
+        <div className="text-white/80">Programming Language</div>
         <SelectLanguage
           value={selectedLanguage}
           onValueChange={setSelectedLanguage}

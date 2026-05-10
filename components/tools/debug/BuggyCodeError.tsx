@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface CodeDescriptionProps {
+interface BuggyCodeErrorProps {
   value: string;
   onValueChange: (v: string) => void;
 }
 
-const CodeDescription = ({ value, onValueChange }: CodeDescriptionProps) => {
+const BuggyCodeError = ({ value, onValueChange }: BuggyCodeErrorProps) => {
   return (
     <div className="mt-4 text-white">
-      <p>Describe what you want to code: </p>
+      <p>Error Message (Optional) </p>
       <textarea
         className="w-full h-24 p-2 border rounded-md mt-2"
         value={value}
@@ -18,4 +18,4 @@ const CodeDescription = ({ value, onValueChange }: CodeDescriptionProps) => {
   );
 };
 
-export default CodeDescription;
+export default BuggyCodeError;

@@ -20,14 +20,21 @@ const SelectLanguage = ({ value, onValueChange }: SelectLanguageProps) => {
       onValueChange={onValueChange}
       defaultValue={value.toLowerCase()}
     >
-      <SelectTrigger className="my-2">
-        <SelectValue placeholder="Select a language" />
+      <SelectTrigger className="my-2 text-white">
+        <SelectValue
+          placeholder="Select a language"
+          className="text-white/80"
+        />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Javascript</SelectLabel>
+          <SelectLabel className="text-white/80">Javascript</SelectLabel>
           {languages.map((language) => (
-            <SelectItem key={language} value={language.toLowerCase()}>
+            <SelectItem
+              className="text-white"
+              key={language}
+              value={language.toLowerCase()}
+            >
               {language}
             </SelectItem>
           ))}
