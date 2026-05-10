@@ -7,7 +7,10 @@ import { Tab } from '@/types';
 
 export function AITools() {
   return (
-    <Tabs defaultValue="generate" className="w-full max-w-4xl font-sans mx-10">
+    <Tabs
+      defaultValue="generate"
+      className="w-[calc(100%-5rem)] max-w-4xl font-sans mx-auto"
+    >
       <TabsList className="items-stretch grid grid-cols-3 rounded-t-xl rounded-b-none bg-zinc-900 border-x border-t border-zinc-800 h-12">
         {tabs.map((tab: Tab) => (
           <TabsTrigger
