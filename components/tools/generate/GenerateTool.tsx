@@ -8,10 +8,51 @@ import GeneratePrompts from './GeneratePrompts';
 import GenerateButton from './GenerateButton';
 import GeneratedCode from './GeneratedCode';
 
+const detectLanguage = (text: string) => {
+  const lowercaseText = text.toLowerCase();
+
+  const mappings = {
+    javascript: 'javascript',
+    js: 'javascript',
+    ts: 'typescript',
+    python: 'python',
+    java: 'java',
+    'c++': 'cpp', // common value for C++
+    typescript: 'typescript',
+    rust: 'rust',
+    go: 'go',
+    swift: 'swift',
+    php: 'php',
+    ruby: 'ruby',
+  };
+
+  for (const [keyword, langValue] of Object.entries(mappings)) {
+    // Escape special characters for Regex (like ++)
+    const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escapedKeyword}\\b`, 'i');
+
+    if (regex.test(lowercaseText)) {
+      return langValue;
+    }
+  }
+  return null;
+};
 const GenerateTool = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('javascript');
   const [description, setDescription] = useState('');
   const [generatedCode, setGeneratedCode] = useState('');
+
+  const handleDescriptionChange = (newText: string) => {
+    setDescription(newText);
+
+    // Auto-detect language from the text
+    const detected = detectLanguage(newText);
+
+    // Only update if we found a match AND it's different from the current selection
+    if (detected && detected !== selectedLanguage) {
+      setSelectedLanguage(detected);
+    }
+  };
 
   return (
     <Card className="p-5">
@@ -24,11 +65,14 @@ const GenerateTool = () => {
           value={selectedLanguage}
           onValueChange={setSelectedLanguage}
         />
-        <CodeDescription value={description} onValueChange={setDescription} />
+        <CodeDescription
+          value={description}
+          onValueChange={handleDescriptionChange}
+        />
       </CardContent>
       <GeneratePrompts
         onValueChange={(prompt) => {
-          setDescription(prompt.text);
+          handleDescriptionChange(prompt.text);
           setSelectedLanguage(prompt.language);
         }}
       />
