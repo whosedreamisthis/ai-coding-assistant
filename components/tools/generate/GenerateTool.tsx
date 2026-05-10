@@ -79,7 +79,6 @@ const GenerateTool = () => {
 
       <GenerateButton
         onResult={(result: string) => {
-          console.log('RESULT', result);
           setGeneratedCode(result);
         }}
         selectedLanguage={selectedLanguage}

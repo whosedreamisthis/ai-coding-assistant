@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import DebugTool from './debug/DebugTool';
-import ExplainTool from '@/components/tools/ExplainTool';
+import ExplainTool from './explain/ExplainTool';
 import GenerateTool from './generate/GenerateTool';
 import { tabs } from '@/data/tabs';
 import { Tab } from '@/types';

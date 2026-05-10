@@ -3,27 +3,26 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-import DebuggedCode from './DebuggedCode';
-import DebugButton from './DebugButton';
-import BuggyCode from './BuggyCode';
-import BuggyCodeError from '@/components/tools/debug/BuggyCodeError';
+import ExplainedCode from './ExplainedCode';
+import ExplainButton from './ExplainButton';
+import CodeToExplain from './CodeToExplain';
+
 import { Button } from '@/components/ui/button';
-import { sampleBuggyCode } from '@/data/examples';
+import { sampleCode } from '@/data/examples';
 
 const DebugTool = () => {
-  const [buggyCode, setBuggyCode] = useState('');
-  const [error, setError] = useState('');
-  const [debuggedCode, setDebuggedCode] = useState('');
+  const [code, setCode] = useState('');
+  const [explainedCode, setExplainedCode] = useState('');
 
   return (
     <Card className="p-5 text-white">
       <CardHeader className="space-y-2 p-0">
         <CardTitle className="text-xl font-bold flex items-center justify-between">
-          <p>Debug Code</p>
+          <p>Explain Code</p>
           <Button
             className=" bg-slate-700 hover:bg-slate-500 text-white px-5 py-4 rounded-sm "
             onClick={() => {
-              setBuggyCode(sampleBuggyCode);
+              setCode(sampleCode);
             }}
           >
             Try Sample
@@ -31,19 +30,17 @@ const DebugTool = () => {
         </CardTitle>
       </CardHeader>
       <CardContent className="text-sm text-muted-foreground relative p-0">
-        <BuggyCode value={buggyCode} onValueChange={setBuggyCode} />
-        <BuggyCodeError value={error} onValueChange={setError} />
+        <CodeToExplain value={code} onValueChange={setCode} />
       </CardContent>
 
-      <DebugButton
+      <ExplainButton
         onResult={(result: string) => {
-          setDebuggedCode(result);
+          setExplainedCode(result);
         }}
-        code={buggyCode}
-        error={error}
+        code={code}
       />
 
-      <DebuggedCode debuggedCode={debuggedCode} />
+      <ExplainedCode code={explainedCode} />
     </Card>
   );
 };
