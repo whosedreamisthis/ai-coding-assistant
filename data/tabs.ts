@@ -1,6 +1,6 @@
 import { Tab } from '@/types';
 
-const tabs: Tab[] = [
+export const tabs: Tab[] = [
   {
     id: 'explain',
     label: 'Explain Code',
