@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import React from 'react';
 import { Copy } from 'lucide-react';
@@ -8,13 +10,17 @@ interface GeneratedCodeProps {
 }
 
 const GeneratedCode = ({ code, language }: GeneratedCodeProps) => {
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(code);
+  };
+
   return (
     <div>
       <p className="text-xl font-bold mb-6 mt-8">Generated Code</p>
       <Card className="p-0">
         <CardHeader className="bg-slate-800 h-12 relative flex justify-between items-center">
           <p>{language}</p>
-          <Copy size={16} />
+          <Copy size={16} onClick={handleCopy} />
         </CardHeader>
         <CardContent>
           <pre className="overflow-x-auto">
