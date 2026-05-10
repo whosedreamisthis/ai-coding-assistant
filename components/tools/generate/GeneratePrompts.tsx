@@ -2,10 +2,9 @@
 
 import React from 'react';
 import { samplePrompts } from '@/data/examples';
-import { Button } from '@/components/ui/button';
 
 interface GeneratePromptsProps {
-  onValueChange: (value: string) => void;
+  onValueChange: (prompt: { text: string; language: string }) => void;
 }
 
 const GeneratePrompts = ({ onValueChange }: GeneratePromptsProps) => {
@@ -19,7 +18,7 @@ const GeneratePrompts = ({ onValueChange }: GeneratePromptsProps) => {
             className="text-start text-sm font-normal bg-slate-700/50 text-white/80"
             onClick={() => onValueChange(prompt)}
           >
-            {prompt}
+            {prompt.text}
           </button>
         ))}
       </div>

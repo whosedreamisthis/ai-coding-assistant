@@ -1,22 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import SelectLanguage from './SelectLanguage';
 import CodeDescription from './CodeDescription';
 import GeneratePrompts from './GeneratePrompts';
-import { Button } from '@/components/ui/button';
-import GenerateButton from '@/components/tools/generate/GenerateButton';
+import GenerateButton from './GenerateButton';
+import GeneratedCode from './GeneratedCode';
 
 const GenerateTool = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('javascript');
   const [description, setDescription] = useState('');
+  const [generatedCode, setGeneratedCode] = useState('');
 
   return (
     <Card className="p-5">
@@ -31,15 +26,23 @@ const GenerateTool = () => {
         />
         <CodeDescription value={description} onValueChange={setDescription} />
       </CardContent>
-      <GeneratePrompts onValueChange={setDescription} />
+      <GeneratePrompts
+        onValueChange={(prompt) => {
+          setDescription(prompt.text);
+          setSelectedLanguage(prompt.language);
+        }}
+      />
 
       <GenerateButton
         onResult={(result: string) => {
           console.log('RESULT', result);
+          setGeneratedCode(result);
         }}
         selectedLanguage={selectedLanguage}
         description={description}
       />
+
+      <GeneratedCode code={generatedCode} language={selectedLanguage} />
     </Card>
   );
 };

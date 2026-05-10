@@ -1,8 +1,20 @@
 export const samplePrompts = [
-  'Create a function that reverses a string',
-  'Write a TypeScript interface for a User profile with name, email, and age',
-  'Generate a React hook that handles window resizing',
-  'Create a Python script to scrape titles from a webpage using BeautifulSoup',
+  {
+    text: 'Create a function that reverses a string',
+    language: 'javascript',
+  },
+  {
+    text: 'Write a TypeScript interface for a User profile with name, email, and age',
+    language: 'typescript',
+  },
+  {
+    text: 'Generate a React hook that handles window resizing',
+    language: 'javascript',
+  },
+  {
+    text: 'Create a Python script to scrape titles from a webpage using BeautifulSoup',
+    language: 'python',
+  },
 ];
 
 export const sampleCode = `function getFibonacci(n) {
