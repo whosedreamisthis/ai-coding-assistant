@@ -1,4 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Coding Assistant
+
+This project is an AI-powered coding assistant built with Next.js, TypeScript, and Gemini AI.
+
+Inspired by the design in this YouTube tutorial: [Build Your AI Coding Assistant: Next js, TypeScript, Gemini AI Tutorial | Full Stack AI App Tutorial](https://www.youtube.com/watch?v=8LWXQYaXFms&t=279s) by Dipesh Malvia. While the design is inspired by the tutorial, all the logic has been implemented independently.
+
+## Features
+
+- **Code Generation**: Generate code snippets in various programming languages based on natural language descriptions.
+- **Debugging**: Analyze buggy code and get suggestions for fixes.
+- **Code Explanation**: Get detailed explanations of complex code blocks to better understand how they work.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **AI Engine**: [Google Gemini AI](https://ai.google.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/)
 
 ## Getting Started
 
@@ -16,18 +34,13 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Google Gemini AI Documentation](https://ai.google.dev/docs) - learn about Gemini AI.
 
 ## Deploy on Vercel
 
