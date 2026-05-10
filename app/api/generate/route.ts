@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest) => {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     let prompt = `Please generate ${language || 'javascript'} code for the following description: \n\n${description}\n\n:`;
 
-    prompt += 'Code suggestion: ';
+    prompt += 'Code: ';
 
     const result = await model.generateContent(prompt);
     const response = result.response;

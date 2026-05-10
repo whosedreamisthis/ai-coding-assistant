@@ -33,7 +33,7 @@ export interface Tab {
 
 export interface FeatureGrid {
   title: string;
-  description: sting;
+  description: string;
   icon: string;
 }
 
