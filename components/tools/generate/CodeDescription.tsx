@@ -10,7 +10,7 @@ const CodeDescription = ({ value, onValueChange }: CodeDescriptionProps) => {
     <div className="mt-4 text-white">
       <p>Describe what you want to code: </p>
       <textarea
-        className="w-full h-24 p-2 border rounded-md mt-2"
+        className="w-full h-24 p-2 border rounded-md mt-2 border-white/50"
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
       />

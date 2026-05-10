@@ -10,7 +10,7 @@ const BuggyCode = ({ value, onValueChange }: BuggyCodeProps) => {
     <div className="mt-4 text-white">
       <p>Code with issues </p>
       <textarea
-        className="w-full h-24 p-2 border rounded-md mt-2"
+        className="w-full h-40 p-2 border rounded-md mt-2 border-white/50"
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
       />
