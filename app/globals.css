@@ -130,10 +130,15 @@
   body {
     @apply bg-background text-foreground;
 
+
   }
   html {
     @apply font-sans;
 
   }
 
+}
+
+body {
+  box-sizing: border-box;
 }

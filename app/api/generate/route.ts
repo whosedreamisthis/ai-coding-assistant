@@ -22,7 +22,9 @@ export const POST = async (req: NextRequest) => {
     }
 
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
-    let prompt = `Please generate ${language || 'javascript'} code for the following description: \n\n${description}\n\n:`;
+    let prompt = `You are an expert ${language} developer. 
+Generate clean, efficient code for: ${description}. 
+Return only the raw code without markdown formatting or explanations.`;
 
     prompt += 'Code: ';
 

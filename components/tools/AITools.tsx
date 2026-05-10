@@ -1,17 +1,14 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import DebugTool from '@/components/tools/DebugTool';
 import ExplainTool from '@/components/tools/ExplainTool';
-import GenerateTool from '@/components/tools/GenerateTool';
+import GenerateTool from './generate/GenerateTool';
 import { tabs } from '@/data/tabs';
 import { Tab } from '@/types';
 
 export function AITools() {
   return (
-    <Tabs
-      defaultValue="explain"
-      className="w-full max-w-4xl mx-auto p-4 font-sans"
-    >
-      <TabsList className="items-stretch grid grid-cols-3 rounded-t-xl rounded-b-none bg-zinc-900 border-x border-t border-zinc-800 h-12 p-0">
+    <Tabs defaultValue="generate" className="w-full max-w-4xl font-sans mx-10">
+      <TabsList className="items-stretch grid grid-cols-3 rounded-t-xl rounded-b-none bg-zinc-900 border-x border-t border-zinc-800 h-12">
         {tabs.map((tab: Tab) => (
           <TabsTrigger
             key={tab.id}
@@ -25,7 +22,7 @@ export function AITools() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <TabsContent value="explain">
+      <TabsContent value="explain" className="relative">
         <ExplainTool />
       </TabsContent>
       <TabsContent value="debug">
