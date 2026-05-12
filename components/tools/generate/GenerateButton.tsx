@@ -23,7 +23,7 @@ const GenerateButton = ({
   return (
     <Button
       disabled={loading}
-      className={`text-white mt-7 rounded-md bg-linear-to-r ${gradient}`}
+      className={`transition-all hover:scale-102 cursor-pointer text-white mt-7 rounded-md bg-linear-to-r ${gradient}`}
       onClick={async () => {
         try {
           setLoading(true);
